@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Detalle del foro
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+
+    <ion-item>
+      <ion-label floating>Titula</ion-label>
+      <ion-input type="text" [(ngModel)]="note.title"></ion-input>
+    </ion-item>
+  
+    <ion-item>
+      <ion-label floating>Descripcion</ion-label>
+      <ion-textarea [(ngModel)]="note.description" ></ion-textarea>
+    </ion-item>
+  
+  </ion-list>
+ 
+  <div padding>
+    <button ion-button block (click)="addNote()">Guardar Nota</button>
+    <button *ngIf="id != 0"  ion-button block (click)="deleteNote()" color="danger">Eliminar Nota</button>
+  </div>
+  
+</ion-content>

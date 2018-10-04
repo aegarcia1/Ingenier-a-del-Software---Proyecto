@@ -1,0 +1,76 @@
+<!--
+  Generated template for the AboutPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar no-border-bottom>
+    <ion-navbar>
+      <ion-title>Mis eventos</ion-title>
+    </ion-navbar>
+  </ion-navbar>
+  
+  <ion-toolbar no-border-top>
+    <div padding>
+      <ion-segment [(ngModel)]="pet">
+        <ion-segment-button value="Eventos">
+          Eventos
+        </ion-segment-button>
+        <ion-segment-button value="Inscrito">
+          Inscrito
+        </ion-segment-button>
+        <ion-segment-button value="Terminados">
+          Terminados
+        </ion-segment-button>
+      </ion-segment>
+    </div>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content >
+  <div [ngSwitch]="pet">
+    <ion-list *ngSwitchCase="'Eventos'">
+      <div *ngFor="let evento of eventos" >
+        <div *ngIf="evento.estado != 0">
+          <ion-item  (click)="goTodetail(evento.id,1)">
+            <ion-thumbnail item-start>
+              <img src="assets/img/thumbnail-puppy-1.jpg">
+            </ion-thumbnail>
+            <h2>{{ evento.nombre }} </h2>        
+          </ion-item>
+          ...
+        </div>
+      </div>
+    </ion-list>
+  
+    <ion-list *ngSwitchCase="'Inscrito'">
+        <div *ngFor="let inscrip of evetosInscritos" >
+            <div *ngIf="inscrip.asistencia != 0">
+              <ion-item  (click)="goTodetail(event.id,3)">
+                <ion-thumbnail item-start>
+                  <img src="assets/img/thumbnail-puppy-1.jpg">
+                </ion-thumbnail>
+                <h2>{{ inscrip.id }} </h2>        
+              </ion-item>
+              ...
+            </div>
+          </div>
+    </ion-list>
+
+    <ion-list *ngSwitchCase="'Terminados'">
+      <div *ngFor="let event of eventos" >
+        <div *ngIf="event.estado == 0">
+          <ion-item  (click)="goTodetail(event.id,3)">
+            <ion-thumbnail item-start>
+              <img src="assets/img/thumbnail-puppy-1.jpg">
+            </ion-thumbnail>
+            <h2>{{ event.nombre }} </h2>        
+          </ion-item>
+          ...
+        </div>
+      </div>
+    </ion-list>
+  </div>
+</ion-content>
